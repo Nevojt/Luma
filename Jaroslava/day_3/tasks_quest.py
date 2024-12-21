@@ -20,8 +20,6 @@ ctrl + lcm --> синтаксисhttps://www.w3schools.com/python/python_lists_r
     Роздрукувати результат
 
 """
-from Jaroslava.day_3.tasks_day_3 import user_list
-
 # Code
 
 
