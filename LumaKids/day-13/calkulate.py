@@ -1,24 +1,28 @@
-hader = r'''
-           _            _       _
-  ___ __ _| | ___ _   _| | __ _| |_ ___  _ __
- / __/ _` | |/ __| | | | |/ _` | __/ _ \| '__|
-| (_| (_| | | (__| |_| | | (_| | || (_) | |
- \___\__,_|_|\___|\__,_|_|\__,_|\__\___/|_|
-'''
+import pyfiglet
+from colorama import Fore, Back, Style
 
-print(hader)
+hello = "This is calculater!!!"
+# Back.GREEN
 
-print("This is calculater!!!\n")
-#
-# num1 = float(input("Enter first number: "))
-# option = input("Enter operator (+, -, *, /): ")
-# num2 = float(input("Enter second number: "))
-#
-#
-# if option == "+":
-#     result = num1 + num2
-#     print(f"{num1} + {num2} = {result}")
-#
-# elif option == "-":
-#     result = num1 - num2
-#     print(f"{num1} - {num2} = {result}")
+print(Fore.LIGHTMAGENTA_EX + Back.RED +Style.BRIGHT + pyfiglet.figlet_format(hello))
+
+num1 = float(input("Enter first number: "))
+option = input("Enter operator (+, -, *, /): ")
+num2 = float(input("Enter second number: "))
+
+
+if option == "+":
+    result = num1 + num2
+    print(pyfiglet.figlet_format(f"{num1} + {num2} = {result}"))
+
+elif option == "-":
+    result = num1 - num2
+    print(pyfiglet.figlet_format(f"{num1} - {num2} = {result}"))
+
+elif option == "/":
+    result = num1 / num2
+    print(pyfiglet.figlet_format(f"{num1} / {num2} = {result}"))
+
+elif option == "*":
+    result = num1 * num2
+    print(pyfiglet.figlet_format(f"{num1} * {num2} = {result}"))
