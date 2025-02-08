@@ -6,6 +6,8 @@
 # qrcode = segno.make_qr("Hello, World")
 # qrcode.save("basic_qrcode.png", scale=5, light="lightblue",dark="darkblue",quiet_zone="maroon", data_dark="green")
 
+# python -m pip install pillow qrcode-artistic
+
 import segno
 from urllib.request import urlopen
 
