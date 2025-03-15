@@ -17,14 +17,14 @@ def display_clock():
         clear_screen()
 
         #     Get the current time
-        current_time = time.strftime("%H:%M:%S")
+        _time_ = time.strftime("%H:%M:%S")
 
     #     Create a stylish clock
         print(f"""
             ========================
             ||  Real-Time Clock   ||
             ========================
-            ||      {current_time}      ||
+            ||      {_time_}      ||
             ========================
         """)
         time.sleep(1)
