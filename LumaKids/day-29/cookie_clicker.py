@@ -10,9 +10,9 @@ def update_score():
     global score
     score += click_power
     score_label.config(text=f"Score: {score}")
-    animate_cookie()
     check_level()
     maybe_bonus()
+
     if score >= upgrade_cost:
         upgrade_button.config(state="normal")
     else:
@@ -32,41 +32,42 @@ def check_level():
     new_level = score // 50 + 1
     if new_level != level:
         level = new_level
-        level_label.config(text=f"Level: {level} 🎉")
-        window.config(bg=random.choice(["#ffe4b5", "#c0eb75", "#ffb5e0", "#a5d8ff"]))
-
-def animate_cookie():
-    cookie_button.config(font=("Arial", 50))
-    window.after(100, lambda: cookie_button.config(font=("Arial", 40)))
+        level_label.config(text=f"Level: {level}")
+        window.config(bg=random.choice(["red", "blue", "pink", "yellow", "green"]))
 
 def maybe_bonus():
-    if random.randint(1, 15) == 1:
+    if random.randint(1, 20) == 1:
         bonus_button.pack()
 
 def bonus_score():
     global score
     score += 10
-    score_label.config(text=f"Score: {score} (+10!)")
+    score_label.config(text=f"Score: {score} (+10)")
     bonus_button.pack_forget()
 
+
 window = tk.Tk()
-window.title("Cookie Clicker")
-window.geometry("400x450")
+window.title("Cookie clicker")
+window.geometry("400x500")
 
 score_label = tk.Label(window, text=f"Score: {score}", font=("Arial", 24))
 score_label.pack(pady=10)
+
 level_label = tk.Label(window, text=f"Level: {level}", font=("Arial", 16))
 level_label.pack()
 
+original_image = tk.PhotoImage(file="cookie.png")
+after_image = original_image.subsample(5, 5)
 
-cookie_image_original = tk.PhotoImage(file="cookie.png")
-cookie_image = cookie_image_original.subsample(5, 5)
-cookie_button = tk.Button(window, image=cookie_image, command=update_score)
+cookie_button = tk.Button(window, image=after_image, command=update_score)
 cookie_button.pack()
 
-bonus_button = tk.Button(window, text="🎁 Bonus! +10", font=("Arial", 12), bg="#fff176", command=bonus_score)
-
-upgrade_button = tk.Button(window, text=f"Update click | Cost: {upgrade_cost}", font=("Arial", 14), command=buy_upgrade, state="disabled")
+upgrade_button = tk.Button(window, text=f"Update click | Cost: {upgrade_cost}",
+                           font=("Arial", 14), command=buy_upgrade, state="disabled")
 upgrade_button.pack(pady=20)
+
+bonus_button = tk.Button(window, text="Bonus! +10", font=("Arial", 12),
+                         bg="yellow", command=bonus_score)
+
 
 window.mainloop()
